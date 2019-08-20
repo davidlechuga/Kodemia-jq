@@ -1,0 +1,14 @@
+.square {
+  width: 200px;
+  height: 200px;
+  box-shadow: 5px 5px 5px #333;
+  border-radius: 5px;
+}
+.square.green-square {
+  background: green;
+}
+.square.red-square {
+  background: red;
+}
+
+/*# sourceMappingURL=main.css.map */
