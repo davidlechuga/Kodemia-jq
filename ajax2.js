@@ -17,8 +17,7 @@ console.log('correcto');
 
 // }
 
-
-var Vd =  $('#boton').click(function(){
+ $('#boton').click(function(){
 		console.log('h')
 	var json = (function() {
         var json = null;
@@ -31,12 +30,6 @@ var Vd =  $('#boton').click(function(){
                 json =data
             }
         });
-
-        return console.log(data)
-        
-          
+        return console.log(data) 
     })();
-  
-
-
 });
