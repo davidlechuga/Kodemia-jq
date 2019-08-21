@@ -1,42 +1,58 @@
-$(".square").slideDown();
-$(".square.red-square").slideDown();
-
-$("body").append (`
-<div class="square  green-square"> </div>
-<div class="square  red-square"> </div> 
-`
-);
-
-$(".square").append (`
-<button> Click me </button>
-`)
-
-$("button").on("click",
-    (element) => {
-        $(element.target)
-        .closest(".square.green-square")
-        $("ul").append ("<li> songsNames </li>")
-    }
-)
-
-
 const songsNames = [
-    
-    "los chicos no lloran ",
-    "Bambu",
-    "Morena Mía",
-    "Manos vacías",
-    "Aire sol",
-    "Te amaré",
-    "Y como un lobo",
-    "Tu mi salvación"
+    {
+        name:"Los chicos no lloran",
+        author:"Miguel Bosé",
+        gender:"Pop",
+        country:"España"
+    },
+    {
+        name:"Morena mía",
+        author:"Miguel Bosé",
+        gender:"Pop",
+        country:"España"
+    },
+    {
+        name:"Manos Vacías",
+        author:"Miguel Bosé",
+        gender:"Pop",
+        country:"España"
+    },
+    {
+        name:"Aire soy",
+        author:"Miguel Bosé",
+        gender:"Pop",
+        country:"España"
+    },
+    {
+        name:"Te amare",
+        author:"Miguel Bosé",
+        gender:"Pop",
+        country:"España"
+    }
 ]
- 
-
-/*
-$(".square").css({
-    "top": "50px",
-    "left":"250px"   //  es un objeto 
-});
-
-*/
+const fillSongsList = () => {
+    songsNames.forEach((value,index)=>{
+        console.log(`value ${value}, index ${index}`)
+        $(".songs-list").append(`
+            <div class="song-card" data-song-name="${value.name}">
+                <p class="song-name">${value.name}</p>
+                <p><b>${value.author}</b></p>
+                <p><b>${value.gender}</b></p>
+                <p><b>${value.country}</b></p>
+                <div class="button-wrapper">
+                    <button class="btn-danger">Eliminar</button>
+                    <button class="btn-success">Agregar a favoritos</button>
+                </div>
+            </div>
+        `)
+    })
+    $(".btn-danger").on("click",(event)=>{
+        $(event.target).parent().remove();
+    })
+    $(".btn-success").on("click",(event) => {
+        $(event.target).closest(".song-card").appendTo(".favourite-songs")
+    })
+}
+fillSongsList();
+$("input").val() /*getter*/
+$("input").val("some value") /*setter*/
